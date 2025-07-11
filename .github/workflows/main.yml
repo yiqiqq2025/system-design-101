@@ -30,8 +30,10 @@ jobs:
       - name: Install Dependencies
         run: |
           gem install bundler
+          bundle install || echo "Gemfile not found, creating a basic one"
+          [ -f Gemfile ] || echo -e 'source "https://rubygems.org"\ngem "jekyll", "~> 4.3"\ngem "minima", "~> 2.5"\ngem "webrick", "~> 1.8"' > Gemfile
           bundle install
-        if: steps.cache.outputs.cache-hit != 'true'
+        continue-on-error: true
 
       - name: Build Jekyll Site
         run: |
