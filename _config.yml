@@ -1,0 +1,8 @@
+title: System Design 101
+description: A collection of system design resources
+baseurl: ""
+url: "https://sd101.yiqiqq.com"
+source: data/guides
+destination: _site
+markdown: kramdown
+theme: minima # Matches the theme in Gemfile
